@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dashboard - Alura 2</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
+</head>
+<body>
+    <!-- HEADER / NAVBAR -->
+    <header class="header">
+        <nav class="navbar">
+            <div class="navbar-container">
+                <div class="navbar-logo">
+                    <a href="index.html">
+                        <span class="logo-icon">📊</span>
+                        <span class="logo-text">Alura Dashboard</span>
+                    </a>
+                </div>
+                <ul class="nav-menu">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-links active">Dashboard</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#items" class="nav-links">Itens</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#about" class="nav-links">Sobre</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="#contact" class="nav-links">Contato</a>
+                    </li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>Menu</h3>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="sidebar-item">
+                    <a href="#dashboard" class="sidebar-link active" data-section="dashboard">
+                        <span class="icon">📈</span>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#items" class="sidebar-link" data-section="items">
+                        <span class="icon">📋</span>
+                        <span>Itens</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#analytics" class="sidebar-link" data-section="analytics">
+                        <span class="icon">📊</span>
+                        <span>Análises</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#settings" class="sidebar-link" data-section="settings">
+                        <span class="icon">⚙️</span>
+                        <span>Configurações</span>
+                    </a>
+                </li>
+            </ul>
+        </aside>
+
+        <!-- CONTENT AREA -->
+        <section class="content">
+            <!-- DASHBOARD SECTION -->
+            <div id="dashboard" class="content-section active">
+                <div class="section-header">
+                    <h1>Dashboard</h1>
+                    <p class="section-subtitle">Bem-vindo ao seu painel de controle</p>
+                </div>
+
+                <div class="cards-container">
+                    <div class="card">
+                        <div class="card-icon">📊</div>
+                        <h3>Total de Itens</h3>
+                        <p class="card-value" id="totalItems">0</p>
+                        <p class="card-description">Itens registrados</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">✅</div>
+                        <h3>Concluídos</h3>
+                        <p class="card-value" id="completedItems">0</p>
+                        <p class="card-description">Tarefas finalizadas</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">⏳</div>
+                        <h3>Pendentes</h3>
+                        <p class="card-value" id="pendingItems">0</p>
+                        <p class="card-description">Aguardando conclusão</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-icon">📈</div>
+                        <h3>Taxa de Conclusão</h3>
+                        <p class="card-value" id="completionRate">0%</p>
+                        <p class="card-description">Progresso geral</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ITEMS SECTION -->
+            <div id="items" class="content-section">
+                <div class="section-header">
+                    <h1>Gerenciador de Itens</h1>
+                    <p class="section-subtitle">Adicione e gerencie seus itens</p>
+                </div>
+
+                <div class="items-controls">
+                    <div class="input-group">
+                        <input 
+                            type="text" 
+                            id="itemInput" 
+                            class="item-input" 
+                            placeholder="Digite um novo item..."
+                            autocomplete="off"
+                        >
+                        <button id="addItemBtn" class="btn btn-primary">
+                            <span>➕ Adicionar</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="items-list-container">
+                    <ul id="itemsList" class="items-list">
+                        <!-- Items serão adicionados aqui dinamicamente -->
+                    </ul>
+                </div>
+            </div>
+
+            <!-- ANALYTICS SECTION -->
+            <div id="analytics" class="content-section">
+                <div class="section-header">
+                    <h1>Análises</h1>
+                    <p class="section-subtitle">Visualize suas estatísticas</p>
+                </div>
+
+                <div class="analytics-grid">
+                    <div class="analytics-card">
+                        <h3>Resumo Geral</h3>
+                        <div class="stat-row">
+                            <span>Total de Itens:</span>
+                            <strong id="analyticsTotalItems">0</strong>
+                        </div>
+                        <div class="stat-row">
+                            <span>Taxa de Sucesso:</span>
+                            <strong id="analyticsSuccessRate">0%</strong>
+                        </div>
+                        <div class="stat-row">
+                            <span>Última Atualização:</span>
+                            <strong id="analyticsLastUpdate">-</strong>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SETTINGS SECTION -->
+            <div id="settings" class="content-section">
+                <div class="section-header">
+                    <h1>Configurações</h1>
+                    <p class="section-subtitle">Personalize sua experiência</p>
+                </div>
+
+                <div class="settings-container">
+                    <div class="setting-group">
+                        <label>
+                            <input type="checkbox" id="darkModeToggle" class="checkbox">
+                            <span>Modo Escuro</span>
+                        </label>
+                    </div>
+                    <div class="setting-group">
+                        <label>
+                            <input type="checkbox" id="notificationsToggle" class="checkbox" checked>
+                            <span>Ativar Notificações</span>
+                        </label>
+                    </div>
+                    <div class="setting-group">
+                        <button id="clearDataBtn" class="btn btn-danger">
+                            🗑️ Limpar Todos os Dados
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <h4>Sobre</h4>
+                <p>Dashboard desenvolvido com HTML, CSS e JavaScript vanilla. Simples, rápido e eficiente.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Links Rápidos</h4>
+                <ul>
+                    <li><a href="#dashboard">Dashboard</a></li>
+                    <li><a href="#items">Itens</a></li>
+                    <li><a href="#analytics">Análises</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Contato</h4>
+                <p>Email: contato@alura.com</p>
+                <p>Telefone: (11) 1234-5678</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Alura Dashboard. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="./assets/js/app.js"></script>
+    <script src="./assets/js/ui.js"></script>
+    <script src="./assets/js/storage.js"></script>
+</body>
+</html>
